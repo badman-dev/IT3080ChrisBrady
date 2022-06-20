@@ -55,18 +55,15 @@ public class ThirdPersonController : MonoBehaviour
 
         if (x != 0 || z != 0) {
                 if (Input.GetKey(KeyCode.LeftShift)) {
-                    Debug.Log("StartRunning");
                     x *= sprintMulti;
                     z *= sprintMulti;
                     anim.SetInteger("WalkState", 2);
                 }
                 else {
-                    Debug.Log("StartWalking");
                     anim.SetInteger("WalkState", 1);
                 }
         }
         else {
-            Debug.Log("StopWalking");
             anim.SetInteger("WalkState", 0);
         }
 
