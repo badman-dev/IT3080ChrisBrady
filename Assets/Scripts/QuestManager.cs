@@ -6,21 +6,21 @@ using Quests;
 
 public class QuestManager : MonoBehaviour
 {
-    List<Quest> quests;
+    public List<Quest> quests;
 
     public GameObject questParent;
     public GameObject questPrefab;
 
     void Start()
     {
-        quests = new List<Quest>();
+        UpdateUI();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            AddQuest("test title", "test description");
+            AddQuestSimple("test title");
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -28,14 +28,23 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void AddQuest(string title, string description)
+    public void AddQuestSimple(string title)
     {
-        Quest newQuest = new Quest(title, description);
+        Quest newQuest = new Quest(title);
 
         quests.Add(newQuest);
 
         UpdateUI();
     }
+
+    //public void AddQuest(string title, string description)
+    //{
+    //    Quest newQuest = new Quest(title, description);
+
+    //    quests.Add(newQuest);
+
+    //    UpdateUI();
+    //}
 
     public void CompleteQuest(string title)
     {
@@ -76,7 +85,7 @@ public class QuestManager : MonoBehaviour
                 TextMeshProUGUI test = newQuestObject.GetComponent<TextMeshProUGUI>();
                 test.SetText("teststst");
                 newQuestObject.GetComponent<TextMeshProUGUI>().SetText(q.title);
-                newQuestObject.GetComponentInChildren<TextMeshProUGUI>().SetText(q.description);
+                //newQuestObject.GetComponentInChildren<TextMeshProUGUI>().SetText(q.description);
             }
         }
     }

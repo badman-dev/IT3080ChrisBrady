@@ -8,14 +8,19 @@ namespace Quests
     public class Quest
     {
         public string title;
-        public string description;
+        //public string description;
         public bool completed = false;
 
-        public Quest(string tit, string desc)
+        public Quest(string tit)
         {
             title = tit;
-            description = desc;
         }
+
+        //public Quest(string tit, string desc)
+        //{
+        //    title = tit;
+        //    description = desc;
+        //}
 
         public void Complete()
         {
